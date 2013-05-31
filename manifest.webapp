@@ -1,0 +1,11 @@
+{
+    "name":"NFColor",
+    "developer": {
+        "name":"Cristian Vrabie",
+        "url":"http://vrabie.info"
+    },
+    "description":"Playing with colors.",
+    "icons":{
+        "128":"/icon.png"
+    }
+}
