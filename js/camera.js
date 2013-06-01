@@ -1,5 +1,5 @@
 var Camera = {
-	ANALYSE_INTERVAL: 500,
+	ANALYSE_INTERVAL: 200,
 
 	start: function(elementToAppendTo, analyseFrameFunc){
 		var self = this;
