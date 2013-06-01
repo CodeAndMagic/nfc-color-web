@@ -3,13 +3,24 @@
 <head>
 	<title>NFC Color Write</title>
 	<link rel="stylesheet" type="text/css" href="shared/style/buttons.css">
+	<link rel="stylesheet" type="text/css" href="style/nfccolor.css">
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/color.js"></script>
 </head>
-<body>
+<body style="margin:0px; padding:0px;">
 	<div id="canvas">
 
 	</div>
 	<div>
-		<a role="button" href="write.html">Back</a>
+		<a role="button" href="index.html">Back</a>
 	</div>
+	<script type="text/javascript">
+	var bytes = Utils.decimalToSixth("1234");
+	var i=0;
+	window.writeLoop = setInterval( function(){
+		document.getElementById("canvas").style.cssText = "background-color: "+ColorUtils.COLORS[i].css;
+		i = (i+1)%6;
+	},500);
+	</script>
 </body>
 </html>

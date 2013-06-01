@@ -4,6 +4,7 @@
 	<title>NFC Color Read</title>
 	<link rel="stylesheet" type="text/css" href="shared/style/buttons.css">
 	<link rel="stylesheet" type="text/css" href="style/nfccolor.css">
+	<script type="text/javascript" src="js/utils.js"></script>
 	<script type="text/javascript" src="js/color.js"></script>
 	<script type="text/javascript" src="js/camera.js"></script>
 </head>
@@ -14,10 +15,16 @@
 			<div id="average"></div>
 			<div id="closest"></div>
 		</div>
-		<a role="button" href="write.html">Back</a>
+		<a role="button" href="index.html">Back</a>
 	</div>
 	<script type="text/javascript">
-		Camera.start("video");
+		Camera.start("video", function(imageData){
+			var average = ColorUtils.averageColor(imageData);
+			var closest = average.closest();
+			document.getElementById("average").style.cssText = "background-color: "+average.css;
+			document.getElementById("closest").style.cssText = "background-color: "+closest.css;
+			console.log(closest.toByte());
+		});
 	</script>
 </body>
 </html>

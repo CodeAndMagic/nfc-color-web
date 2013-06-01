@@ -38,6 +38,17 @@ RGB.prototype.closest = function(){
 	return this.toLAB().closest();
 }
 
+RGB.prototype.eq = function(other){
+	return other instanceof RGB && this.r == other.r && this.g == other.g && this.b == other.b;
+}
+
+RGB.prototype.toByte = function(){
+	for(var i=0; i<ColorUtils.COLORS.length; ++i){
+        if(ColorUtils.COLORS[i].eq(this)) return i;
+    }
+    return -1;
+}
+
 function XYZ(x,y,z){
 	this.x = x;
 	this.y = y;
@@ -94,26 +105,24 @@ LAB.prototype.closest = function(){
 
 var ColorUtils = {
 	COLORS: [
-        new RGB(0,0,0,"black"),
         new RGB(255,0,0,"red"),
         new RGB(255,127,0,"orange"),
         new RGB(255,255,0,"yellow"),
         new RGB(0,255,0,"green"),
         new RGB(0,255,0,"blue"),
-        new RGB(75,0,130,"indigo"),
         new RGB(143,0,255,"violet"),
+        new RGB(0,0,0,"black"),
         new RGB(255,255,255,"white")
     ],
 
     COLORS_LAB: [
-    	new RGB(0,0,0,"black").toLAB(),
         new RGB(255,0,0,"red").toLAB(),
         new RGB(255,127,0,"orange").toLAB(),
         new RGB(255,255,0,"yellow").toLAB(),
         new RGB(0,255,0,"green").toLAB(),
         new RGB(0,255,0,"blue").toLAB(),
-        new RGB(75,0,130,"indigo").toLAB(),
         new RGB(143,0,255,"violet").toLAB(),
+    	new RGB(0,0,0,"black").toLAB(),
         new RGB(255,255,255,"white").toLAB()
     ],
 

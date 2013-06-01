@@ -1,10 +1,10 @@
 var Camera = {
 	ANALYSE_INTERVAL: 500,
 
-	start: function(elementToAppendTo){
+	start: function(elementToAppendTo, analyseFrameFunc){
 		var self = this;
 		this.createWebcamVideo(elementToAppendTo,function(video){
-			self.startVideoTracking(video, self.analyseFrame, self.ANALYSE_INTERVAL);  
+			self.startVideoTracking(video, analyseFrameFunc, self.ANALYSE_INTERVAL);  
 		});
 	},
 
@@ -54,13 +54,6 @@ var Camera = {
 
 			}, analyseInterval);
 		});
-	},
-
-	analyseFrame: function(imageData){
-		var average = ColorUtils.averageColor(imageData);
-		var closest = average.closest();
-		document.getElementById("average").style.cssText = "background-color: "+average.css;
-		document.getElementById("closest").style.cssText = "background-color: "+closest.css;
 	}
 }
 
