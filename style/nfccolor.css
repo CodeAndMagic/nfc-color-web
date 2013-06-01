@@ -6,7 +6,7 @@ html,body{
 }
 #colors div{
 	width: 50%;
-	height: 100px;
+	height: 300px;
 	display: block;
 }
 
@@ -27,7 +27,7 @@ html,body{
 
 #nr{
 	position: absolute;
-	font-size: 70px;
+	font-size: 400px;
 	top: 30px;
 	right: 50px;
 	color: black;
