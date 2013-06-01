@@ -11,6 +11,7 @@
 <body>
 	<div id="video"></div>
 	<div id="footer">
+		<div id="nr"></div>
 		<div id="colors">
 			<div id="average"></div>
 			<div id="closest"></div>
@@ -23,7 +24,7 @@
 			var closest = average.closest();
 			document.getElementById("average").style.cssText = "background-color: "+average.css;
 			document.getElementById("closest").style.cssText = "background-color: "+closest.css;
-			console.log(closest.toByte());
+			document.getElementById("nr").innerHTML = closest.toByte();
 		});
 	</script>
 </body>
